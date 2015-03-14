@@ -1,0 +1,7 @@
+services:
+    sheer.delnotifications.listener:
+        class: sheer\delnotifications\event\listener
+        arguments:
+            - %core.root_path%
+        tags:
+            - { name: event.listener }
