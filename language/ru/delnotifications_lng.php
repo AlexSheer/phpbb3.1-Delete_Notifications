@@ -21,5 +21,6 @@ $lang = array_merge($lang, array(
 	'UCP_DELNOTIFICATIONS'				=> 'Удаление уведомлений',
 	'UCP_NOTIFICATIONS_DELETE'			=> 'Удаление ненужных уведомлений',
 	'UCP_NOTIFICATIONS_DELETE_EXPLAIN'	=> 'Здесь вы можете выбрать и удалить ненужные уведомления.',
+	'ALL_NOTIFICATIONS_DELETE_SUCCESS'	=> 'Все уведомления были успешно удалены.',
 	'NOTIFICATIONS_DELETE_SUCCESS'		=> 'Выбранные уведомления были успешно удалены.',
 ));
