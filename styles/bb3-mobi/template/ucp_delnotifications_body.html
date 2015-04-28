@@ -1,0 +1,53 @@
+<!-- INCLUDE ucp_header.html -->
+<form id="ucp" method="post" action="{S_UCP_ACTION}"{S_FORM_ENCTYPE}>
+
+<h2>{L_UCP_NOTIFICATIONS_DELETE}</h2>
+<i>{L_UCP_NOTIFICATIONS_DELETE_EXPLAIN}</i>
+
+<!-- IF .notification_list -->
+<!-- IF .pagination -->
+<div class="action-bar">
+<div class="pagination rightside">
+	<!-- INCLUDE pagination.html -->
+</div>
+</div>
+<!-- ENDIF -->
+<div class="notification_list">
+<div class="header">{L_NOTIFICATIONS} [{TOTAL_COUNT}]</div>
+<!-- BEGIN notification_list -->
+<div class="row<!-- IF notification_list.UNREAD --> bg3<!-- ELSE --><!-- IF notification_list.S_ROW_COUNT is odd --> bg1<!-- ELSE --> bg2<!-- ENDIF --><!-- ENDIF --> avatar">
+	<div class="inner">
+		<!-- IF notification_list.AVATAR -->{notification_list.AVATAR}<!-- ELSE --><img src="{T_THEME_PATH}/images/no_avatar.gif" alt="" /><!-- ENDIF -->
+		<!-- IF notification_list.REFERENCE -->{notification_list.FORMATTED_TITLE}<br /><!-- ENDIF -->
+		<!-- IF notification_list.URL --><a href="<!-- IF notification_list.UNREAD -->{notification_list.U_MARK_READ}<!-- ELSE -->{notification_list.URL}<!-- ENDIF -->"><!-- ENDIF --><!-- IF notification_list.REFERENCE -->{notification_list.REFERENCE}<!-- ELSE -->{notification_list.FORMATTED_TITLE}<!-- ENDIF --><!-- IF notification_list.URL --></a><!-- ENDIF -->
+		<!-- IF notification_list.FORUM --><p>{notification_list.FORUM}</p><!-- ENDIF -->
+		<!-- IF notification_list.REASON --><p>{notification_list.REASON}</p><!-- ENDIF -->
+		<p><input type="checkbox" name="mark[]" value="{notification_list.NOTIFICATION_ID}" />&nbsp;{notification_list.TIME}</p>
+	</div>
+</div>
+<!-- END notification_list -->
+</div>
+<!-- IF .pagination -->
+<div class="action-bar">
+	<div class="pagination rightside">
+		<!-- INCLUDE pagination.html -->
+	</div>
+</div>
+<!-- ENDIF -->
+<!-- ELSE -->
+	<p>{L_NO_NOTIFICATIONS}</p>
+<!-- ENDIF -->
+
+<!-- IF .notification_list -->
+<div class="panel">
+<div class="inner">
+	{S_HIDDEN_FIELDS}
+	<input type="submit" name="submit" value="{L_DELETE_MARKED_PM}" class="button1" />
+	<input type="submit" name="del_all" value="{L_DELETE_ALL}" class="button2" />
+	<div class="rightside"><a href="#" onclick="$('#ucp input:checkbox').prop('checked', true); return false;">{L_MARK_ALL}</a> &bull; <a href="#" onclick="$('#ucp input:checkbox').prop('checked', false); return false;">{L_UNMARK_ALL}</a></div>
+</div>
+</div>
+<!-- ENDIF -->
+</form>
+
+<!-- INCLUDE ucp_footer.html -->
